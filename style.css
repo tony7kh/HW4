@@ -1,0 +1,231 @@
+html{
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*::after{
+    box-sizing: inherit;
+}
+
+body{
+    color: black;
+    font-size: 14px;
+    line-height: 1;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+.wrapper{
+    width:100%;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+
+.header{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -202px;
+    width: 250px;
+    padding: 40px 25px;
+    background: grey;
+    color: white;
+}
+
+.header:hover{
+    transition: left .3s ease-in-out;
+    left: 0;
+}
+.header:hover:after{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.header:after{
+    transition: opacity .3s ease-in-out;
+    content: attr(data-text);
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    transform:rotate(90deg) translateY(-50%);
+    text-transform: uppercase;
+}
+
+.nav-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.nav-list li{
+margin-bottom: 15px;
+}
+.nav-list li:before {
+    content: '';
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background: orange;
+    border: 1px solid black;
+    margin-right: 10px;
+    transform:  scale(1.5) rotate(45deg);
+  }
+
+.nav-list a{
+    color: inherit;
+    text-decoration: none;
+}
+.nav-list a:hover{
+    transition: color .3s ease-in-out;
+    color: rgb(216, 216, 86);
+}
+
+.cards-moving{
+    padding: 20px 20px;
+    background: #0d5825;
+    min-height: 50vh;
+    left: 300px;
+    top: 50px;
+
+}
+.cards-moving .quote{
+    text-align: center;
+    color:white;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.cards-moving .cards{
+    padding-top: 100px;
+}
+
+.cards-moving .cards .card1{
+    width: 150px;
+    position: relative;
+    left:calc(50% - 100px);
+    transform: rotate(-15deg);
+}
+
+.cards-moving .cards .card1:hover{
+    transform: rotate(-15deg) translateY(-20px);
+    transition: transform .4s ease-in-out;   
+}
+
+.cards-moving .cards .card2{
+    width: 150px;
+    position: absolute;
+    left:calc(50% - 50px);
+    transform: rotate(-7.5deg);
+}
+
+.cards-moving .cards .card2:hover{
+    transform: rotate(-7.5deg) translateY(-20px);   
+    transition: transform .4s ease-in-out;
+}
+
+.cards-moving .cards .card3{
+    width: 150px;
+    position: absolute;
+    left:calc(50%);
+    transform: rotate(2.5deg);
+}
+
+.cards-moving .cards .card3:hover{
+    transform: rotate(2.5deg) translateY(-20px);
+    transition: transform .4s ease-in-out;   
+}
+
+.animation-holder{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 200px;
+}
+
+@keyframes runBox {
+    0%{
+        position: absolute;
+        top:0;
+        left: 0;
+        background: red;
+    }
+    25%{
+        background: blue;
+        position: absolute;
+        left: 0;
+        top: calc(100% - 100px);
+    }
+    50%{
+        background: green;
+        position: absolute;
+        left: calc(100% - 100px);
+        top: calc(100% - 100px);
+    }
+    75%{
+        background:purple;
+        position: absolute;
+        left: calc(100% - 100px);
+        top: 0;
+    }
+    100%{
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+.animation-holder .box{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: red;
+    animation: runBox 4s ease-in-out infinite;
+}
+
+.box-z-holder{
+    position: relative;
+    top: 100px;
+    left:calc(50% - 100px);
+    width: 200px;
+    height: 200px;
+}
+.box-z-holder .box-z1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: #fa8072;
+    z-index: -1;
+}
+.box-z-holder .box-z2{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    background: #2a93d5;
+    z-index: 1;
+}
+.box-z-holder .box-z3{
+    position: absolute;
+    top:100px;
+    left:100px;
+    width: 100px;
+    height: 100px;
+    background: #58ddb3;
+    z-index: -1;
+}
